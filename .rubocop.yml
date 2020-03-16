@@ -1,0 +1,173 @@
+# Disable complexity / length cops
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+
+# Disable various name and style cops
+
+Naming/UncommunicativeBlockParamName: # If a param name is “communicative” can’t be decided based only on syntax
+  Enabled: false
+
+Naming/UncommunicativeMethodParamName: # If a param name is “communicative” can’t be decided based only on syntax
+  Enabled: false
+
+Naming/VariableNumber: # Both kinds of adding numbers to variables are okay (with and without underscore)
+  Enabled: false
+
+Style/AsciiComments: # Typographic quotes etc. are perfectly okay in comments
+  Enabled: false
+
+Style/BlockDelimiters: # Both do…end and {…} are okay for all kinds of blocks
+  Enabled: false
+
+Style/ClassAndModuleChildren: # Both nested and compact namespacing is okay
+  Enabled: false
+
+Style/CommentAnnotation:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyCaseCondition: # Sometimes a case statement reads better than if … elsif … end
+  Enabled: false
+
+Style/FormatString: # All `sprintf`, `format`, and `%` are okay for formatting strings
+  Enabled: false
+
+Style/FrozenStringLiteralComment: # We enable explicitly on a per-project basis, if needed
+  Enabled: false
+
+Style/GuardClause: # Sometimes using a guard clause makes the code harder to follow
+  Enabled: false
+
+Style/IfUnlessModifier: # Sometimes using a modifier makes the code harder to read
+  Enabled: false
+
+Style/Lambda: # Both `->` and `lambda` are okay for all kinds of procs
+  Enabled: false
+
+Style/NumericPredicate: # Using `== 0` is okay (in some cases at least)
+  Enabled: false
+
+Style/ParallelAssignment: # Parallel assignment is ok for simple cases
+  Enabled: false
+
+Style/PerlBackrefs: # Perl-style regex backrefs (`$1`, …) are short and sweet
+  Enabled: false
+
+Style/SingleLineBlockParams: # Block params should be as meaningful as possible
+  Enabled: false
+
+Style/StringLiterals: # Both '…' and "…" are okay for all kinds of strings
+  Enabled: false
+
+Style/TrailingCommaInArguments: # Multiline parameter might use trailing commas (like in literals)
+  Enabled: false
+
+Style/WordArray: # Especially in nested arrays consistence is important (even if some of the inner arrays could be replace by word arrays)
+  Enabled: false
+
+
+# Enforce our preferred layout and styling choices
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/DotPosition: # Trailing dot works better with intermittent blank lines and copy-pasting into irb
+  EnforcedStyle: trailing
+
+Layout/EmptyLines: # Consecutive empty lines are sometimes useful for additional structure
+  Enabled: false
+
+Layout/EmptyLineBetweenDefs: # Single line method definitions don’t need blank lines in-between them.
+  AllowAdjacentOneLineDefs: true
+
+Layout/IndentFirstArrayElement:
+  EnforcedStyle: consistent
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/SpaceBeforeBlockBraces:
+  EnforcedStyle: no_space
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Style/AndOr: # `and` and `or` may be used for control flow (but not in conditionals)
+  EnforcedStyle: conditionals
+
+Style/SpecialGlobalVars: # `$!` is okay, and we don’t use the other Perl-ish globals anyway
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+
+# Various
+
+Style/HashSyntax: # Allow hash rockets for task dependencies in Rakefiles and for Capistrano
+  Exclude:
+    - '**/*.rake'
+    - 'config/deploy.rb'
+    - 'config/deploy/*.rb'
+
+Style/LambdaCall: # Allow idiomatic Jbuilder usage `json.(@foo, :bar, :baz)`
+  Exclude:
+    -  '**/*.jbuilder'
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'config/puma.rb'
+    - 'config/spring.rb'
+    - 'config/initializers/devise.rb'
+    - 'node_modules/**/*'
+    - 'vendor/gems/das_cms/**/*'
+
+Metrics/BlockLength:
+  Enabled: false
+
+# In Rubocop 0.52.0 betrifft das auch den Formatstring von `#strftime` – da macht das IMHO aber überhaupt keinen Sinn.
+Style/FormatStringToken:
+  Enabled: false
+
+# Im Zusammenhang mit DB-IDs etc ist das irgendwie unpraktisch (und unnötig).
+Style/NumericLiterals:
+  Enabled: false
+
+#  .reject { |x|
+#  }.map { |x|
+#  }
+#  manachmal übersichtlicher als ein "Einzeiler"
+Style/MultilineBlockChain:
+  Enabled: false

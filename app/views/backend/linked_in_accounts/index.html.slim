@@ -1,0 +1,32 @@
+h2 LinkedIn Accounts
+
+= link_to "Create New LinkedIn Account", new_backend_linked_in_account_path
+
+table.ui.table.striped.celled
+  thead
+    tr
+      th Name
+      th Email
+      th Used in campaigns
+      th Logged In?
+      th Created
+      th
+  tbody
+    - @linked_in_accounts.each do |account|
+      tr
+        td = account.name
+        td = account.email
+        td
+          - account.campaigns.each_with_index do |c, index|
+            = link_to c.name, edit_backend_campaign_path(c)
+            - if index != account.campaigns.length-1
+              | ,
+        td = account.logged_in? ? "Logged In!" : "Logged Out!"
+        td = l(account.created_at, format: :short)
+        td
+          = link_to "Edit", edit_backend_linked_in_account_path(account)
+          |&nbsp;
+          = link_to "Delete", backend_linked_in_account_path(account), method: :delete, data: { confirm: "Are you sure?" }
+
+
+

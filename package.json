@@ -1,0 +1,49 @@
+{
+  "name": "covid",
+  "private": true,
+  "scripts": {
+    "dev": "bundle exec foreman start -f Procfile.dev -p 3000",
+    "test": "bin/rspec --tag ~linkedin:true",
+    "downloadDb": "heroku pg:backups:capture && heroku pg:backups:download",
+    "overwriteLocalDb": "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rake db:drop db:create && pg_restore --verbose --clean --no-acl --no-owner -h localhost -U calvin -d covid_development latest.dump && bin/rails db:migrate RAILS_ENV=development",
+    "syncProductionDb": "rm latest.dump; yarn downloadDb && yarn overwriteLocalDb",
+    "deploy": "rubocop -a && yarn test && git push heroku master && heroku run bin/rails db:migrate",
+    "v": "rubocop -a && yarn test"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "@material-ui/core": "^4.4.3",
+    "@rails/webpacker": "^4.0.7",
+    "@wojtekmaj/react-daterange-picker": "^2.4.0",
+    "apexcharts": "^3.8.6",
+    "array-pad": "^0.0.1",
+    "axios": "^0.19.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "chart.js": "^2.8.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "fomantic-ui-less": "^2.7.8",
+    "jquery": "^3.4.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "rc-progress": "^2.5.2",
+    "react": "^16.9.0",
+    "react-apexcharts": "^1.3.3",
+    "react-chartjs-2": "^2.7.6",
+    "react-datepicker": "^2.8.0",
+    "react-dom": "^16.9.0",
+    "react-gauge-chart": "^0.2.1",
+    "react-nl2br": "^0.6.0",
+    "react-router-dom": "^5.0.1",
+    "react-tooltip-lite": "^1.10.0",
+    "semantic-ui-react": "^0.88.1",
+    "shade-blend-color": "^1.0.0",
+    "tailwindcss": "^1.1.2",
+    "underscore": "^1.9.1",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.8.0"
+  }
+}

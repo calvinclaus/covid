@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title Users
+    = csrf_meta_tags
+    = csp_meta_tag
+    = javascript_pack_tag 'backend'
+    = stylesheet_pack_tag 'backend'
+    / because of delete methods/links
+    = javascript_include_tag 'application'
+    <script src="https://kit.fontawesome.com/72fd0a64ea.js" crossorigin="anonymous"></script>
+  body
+    nav(style="z-index: 20; position: relative;")
+      li = link_to "Home", backend_root_path
+      - if !admin_signed_in?
+        li = link_to "Register", new_admin_registration_path
+        li = link_to "Log In", new_admin_session_path
+      - else
+        li = link_to "Companies", backend_companies_path
+        li = link_to "Campaigns", backend_campaigns_path
+        li = link_to "LinkedIn Accounts", backend_linked_in_accounts_path
+        li = link_to "Users", backend_users_path
+        li = link_to "Create User", new_backend_user_path
+        li = link_to "Admins", backend_show_admins_path
+        li = link_to "Account", edit_admin_registration_path
+        li = link_to "Log Out", destroy_admin_session_path, method: :delete
+    .notice = notice
+    .alert = alert
+    .backendWrapper
+      = yield
+

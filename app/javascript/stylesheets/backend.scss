@@ -1,0 +1,30 @@
+@import './shared/campaigns.scss';
+@import './shared/react-date-picker.scss';
+@import './shared.scss';
+
+body {
+  background: #F6FCFF;
+}
+
+.backendWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.react-datepicker__input-container {
+  width: 100%;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.showAfterOneSecond.active {
+  animation-name: fadein;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

@@ -1,0 +1,21 @@
+table.ui.celled.striped.table
+  thead
+    tr
+      th Name
+      th Email
+      th Company
+      th Created
+      th
+  tbody
+    - local_assigns[:users].each do |user|
+      tr
+        td = user.name
+        td = user.email
+        td = link_to user.company.name, backend_company_path(user.company)
+        td = l(user.created_at)
+        td
+          = link_to "Edit", edit_backend_user_path(user)
+          br
+          = link_to "Log in as User", backend_log_in_as_user_path(user), target: "_blank"
+
+

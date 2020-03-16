@@ -1,0 +1,9 @@
+h2 Edit Admin #{@admin.email}
+
+= link_to "Back", backend_show_admins_path
+
+= simple_form_for [:backend, @admin] do |f|
+  = f.input :unlocked
+  = f.button :submit
+
+

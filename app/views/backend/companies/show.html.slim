@@ -1,0 +1,51 @@
+h2 Company "#{@company.name}"
+
+= link_to "Back", backend_companies_path
+br
+= link_to "Edit", edit_backend_company_path(@company)
+
+h2 Users
+= render "backend/users/users", users: @company.users
+
+
+#companyForm(
+  data-company=@company_form_data
+  data-timezones=(ActiveSupport::TimeZone.all.map{ |z| { text: z.name + " (#{z.tzinfo.name})", key: z.name, value: z.tzinfo.name, } }).to_json
+  )
+
+
+hr
+h2 Company Blacklist
+p This company has #{@company.blacklisted_companies.size} blacklisted. Here are 20:
+
+
+
+table.ui.table.striped.celled
+  thead
+    tr
+      th Company Name
+      th
+  tbody
+    - @company.blacklisted_companies.order('updated_at DESC').limit(20).each do |company|
+      tr(data-test-id="blacklistCompany")
+        td = company.name
+        td
+hr
+
+hr
+h2 People Blacklist
+p This company has #{@company.blacklisted_people.size} people blacklisted. Here are 20:
+
+
+
+table.ui.table.striped.celled
+  thead
+    tr
+      th Name
+      th
+  tbody
+    - @company.blacklisted_people.order('updated_at DESC').limit(20).each do |person|
+      tr(data-test-id="blacklistedPerson")
+        td = person.name
+        td
+hr

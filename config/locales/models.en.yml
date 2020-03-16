@@ -1,0 +1,48 @@
+en:
+  errors:
+    format: "%{message}"
+  activerecord:
+    models:
+      linked_in_account: "LinkedIn Account"
+  simple_form:
+    labels:
+      linked_in_account:
+        email: "LinkedIn Account Email"
+        li_at: "Cookie li_at"
+    errors:
+      models:
+        admin:
+          attributes:
+            current_password:
+              blank: "Please enter your current password."
+              invalid: "Current password is wrong."
+            password_confirmation:
+              confirmation: "Password confirmation does not match new password."
+            password:
+              too_short: "Password is too short."
+              blank: "Password cannot be blank."
+            email:
+              blank: "Please enter an E-Mail Address."
+              invalid: "The E-Mail Address is not valid."
+              taken: The E-Mail Address is already in use
+            confirmation_token:
+              invalid: "This Email cannot be verified."
+        user:
+          attributes:
+            current_password:
+              blank: "Please enter your current password."
+              invalid: "Current password is wrong."
+            password_confirmation:
+              confirmation: "Password confirmation does not match new password."
+            password:
+              too_short: "Password is too short."
+              blank: "Password cannot be blank."
+            email:
+              blank: "Please enter an E-Mail Address."
+              invalid: "The E-Mail Address is not valid."
+              taken: The E-Mail Address is already in use
+            confirmation_token:
+              invalid: "This Email cannot be verified."
+    attributes:
+      admin:
+      user:

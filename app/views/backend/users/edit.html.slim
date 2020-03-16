@@ -1,0 +1,26 @@
+
+.ui.vertical.labeled.icon.buttons.mini
+  = link_to backend_users_path, class: "ui button" do
+    <i class="left arrow icon"></i> Back
+
+
+br
+br
+
+= link_to new_backend_campaign_path(company_id: @user.company.id, user_name: @user.name) do
+  <button class="ui labeled icon button positive">
+    <i class="icon plus"></i>
+    | Create new Campaign
+  </button>
+
+- unless @user.creating_password?
+  = link_to backend_send_set_password_email_path(@user), class: "ui labeled icon button yellow" do
+    i.icon.far.fa-paper-plane
+    | Send Password Creation Instructions
+- if @user.creating_password?
+  = link_to backend_send_set_password_email_path(@user), class: "ui labeled icon button orange mini" do
+    i.icon.far.fa-paper-plane
+    | Resend Password Creation Instructions
+
+= render "backend_user_form", user: @user
+

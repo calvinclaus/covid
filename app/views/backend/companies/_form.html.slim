@@ -1,0 +1,11 @@
+= simple_form_for [:backend, @company] do |f|
+  = f.input :name
+
+  h2 Reseller
+  - if @company.reseller.present?
+    h3 Resold by: #{link_to @company.reseller.name, backend_company_path(@company.reseller)}
+    br
+    br
+
+  = f.association :resold_companies, input_html: { style: "height: 800px" }, collection: Company.where.not(id: @company.id).order(:name)
+  = f.submit

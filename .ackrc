@@ -1,0 +1,12 @@
+--ignore-dir=public
+--ignore-dir=chrome-linux
+--ignore-dir=bin
+--ignore-dir=lib
+--ignore-dir=log
+--ignore-dir=coverage
+--ignore-dir=node_modules
+--ignore-dir=storage
+--ignore-dir=tmp
+--ignore-dir=vendor
+--ignore-file=is:Gemfile.lock
+

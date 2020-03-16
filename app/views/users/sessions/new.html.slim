@@ -1,0 +1,23 @@
+.signInBox.ui.grid
+  .row.mt-10
+    .fourteen.wide.mobile.eight.wide.computer.column.centered
+      .logo
+        .img
+        span.text Motion
+
+  .signInForm.fourteen.wide.mobile.eight.wide.computer.column.centered
+    h2.ui.header
+      .content
+        | Log in to Motion
+        .sub.header
+          | Please enter your credentials to proceed
+    - if notice.present?
+      .ui.message.notice = notice
+    - if alert.present?
+      .ui.message.orange.alert = alert
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" }
+      = f.input :password, required: false, input_html: { autocomplete: "current-password" }
+      = f.input :remember_me, as: :boolean, wrapper: :ui_checkbox, input_html: { checked: true } if devise_mapping.rememberable?
+      = f.button :submit, "Log in", class: "fluid"
+    = render "users/shared/links"

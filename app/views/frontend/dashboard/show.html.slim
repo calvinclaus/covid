@@ -1,0 +1,6 @@
+
+#campaigns(
+  data-campaigns=@campaigns_json
+  data-can-see-details=(current_user.can_see_campaign_details? ? "true": false)
+  data-can-see-color-code=(current_user.can_see_campaign_color_code? ? "true": false)
+  )

@@ -1,0 +1,28 @@
+= simple_form_for [:backend, @user] do |f|
+  .ui.segment
+    h3.ui.header User
+    = f.input :name
+    = f.input :email
+    = f.input :can_see_campaign_details, wrapper: :ui_checkbox
+    = f.input :can_see_campaign_color_code, wrapper: :ui_checkbox
+  div.ui.segment(data-form-toggle-children="true" data-test-id="new-existing-company")
+    div
+      h3.ui.header Firma
+      - if @user.company.present?
+        = link_to backend_company_path(@user.company), class: "ui button tiny", style: "margin-bottom: 15px" do
+          <i class="icon far fa-building"></i>
+          = "Go To: "+ @user.company.name
+
+      = f.association :company, wrapper: :ui_select
+      button.ui.right.labeled.icon.button.tiny(data-toggle="true" type="button")
+        <i class="right arrow icon"></i>
+        | Neue Firma Anlegen
+    div(style="display: none")
+      h3.ui.header Firma
+      = f.simple_fields_for(:company, Company.new) do |c|
+        = c.input :name, input_html: { value: "" }
+      button.ui.left.labled.icon.button.tiny(data-toggle="true" type="button")
+        <i class="left arrow icon"></i>
+        | Back
+
+  = f.submit class: "ui button"

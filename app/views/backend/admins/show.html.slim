@@ -1,0 +1,18 @@
+h2 Admins
+
+table.ui.table.striped.celled
+  thead
+    tr
+      th Email
+      th Created
+      th Unlocked?
+      th
+  tbody
+    - @admins.each do |admin|
+      tr(data-test-id="admin-row-#{admin.email.split("@").first}")
+        td = admin.email
+        td = l(admin.created_at)
+        td = admin.unlocked? ? "Yes" : "No"
+        td = link_to "Edit", backend_admins_edit_path(admin)
+
+

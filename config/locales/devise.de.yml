@@ -1,0 +1,60 @@
+de:
+  devise:
+    confirmations:
+      currently_waiting: "Warten auf Bestätigung von: "
+      confirmed: "Vielen Dank für Ihre Registrierung. Bitte melden Sie sich jetzt an."
+      confirmed_and_signed_in: "Vielen Dank für Ihre Registrierung. Sie sind jetzt angemeldet."
+      send_instructions: "Sie erhalten in wenigen Minuten eine Email, mit der Sie Ihre Registrierung bestätigen können."
+      send_paranoid_instructions: "Falls Ihre Email-Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine Email mit der Sie Ihre Registrierung bestätigen können."
+    failure:
+      already_authenticated: "Sie sind bereits angemeldet."
+      inactive: "Ihr Account ist nicht aktiv."
+      invalid: "Ungültige Anmeldedaten."
+      invalid_token: "Der Anmelde-Token ist ungültig."
+      locked: "Ihr Account ist gesperrt."
+      not_found_in_database: "%{authentication_keys} oder Passwort ungültig."
+      timeout: "Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an."
+      unauthenticated: ""
+      unconfirmed: "Sie müssen Ihren Account bestätigen, bevor Sie fortfahren können."
+    mailer:
+      confirmation_instructions:
+        subject: "Willkommen"
+      reset_password_instructions:
+        subject: "Anleitung um Ihr Passwort zurückzusetzen"
+      unlock_instructions:
+        subject: "Anleitung um Ihren Account freizuschalten"
+    omniauth_callbacks:
+      failure: "Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden, weil '%{reason}'."
+      success: "Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet."
+    passwords:
+      no_token: "Sie können diese Seite nur von dem Link aus einer Email zum Passwort-Zurücksetzen aufrufen. Wenn Sie einen solchen Link aufgerufen haben, stellen Sie bitte sicher, dass Sie die vollständige Adresse aufrufen."
+      send_instructions: "Sie erhalten in wenigen Minuten eine Email mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können."
+      send_paranoid_instructions: "Falls Ihre Email-Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine Email mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können."
+      updated: "Ihr Passwort wurde geändert. Sie sind jetzt angemeldet."
+      updated_not_active: "Ihr Passwort wurde geändert."
+    registrations:
+      destroyed: "Ihr Account wurde gelöscht."
+      signed_up: "Willkommen."
+      signed_up_but_inactive: "Sie haben sich erfolgreich registriert. Wir konnten Sie noch nicht anmelden, da Ihr Account inaktiv ist."
+      signed_up_but_locked: "Sie haben sich erfolgreich registriert. Wir konnten Sie noch nicht anmelden, da Ihr Account gesperrt ist."
+      signed_up_but_unconfirmed: "Sie haben sich erfolgreich registriert. Wir konnten Sie noch nicht anmelden, da Ihr Account noch nicht bestätigt ist. Sie erhalten in Kürze eine Email mit der Anleitung, wie Sie Ihren Account freischalten können."
+      update_needs_confirmation: "Ihre Daten wurden aktualisiert, aber Sie müssen Ihre neue Email-Adresse bestätigen. Sie erhalten in wenigen Minuten eine Email, mit der Sie die Änderung Ihrer Email-Adresse abschliessen können."
+      updated: "Ihre Daten wurden aktualisiert."
+    sessions:
+      signed_in: "Erfolgreich eingeloggt."
+      signed_out: "Erfolgreich ausgeloggt."
+    unlocks:
+      send_instructions: "Sie erhalten in wenigen Minuten eine Email mit der Anleitung, wie Sie Ihren Account entsperren können."
+      send_paranoid_instructions: "Falls Ihre Email-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine Email mit der Anleitung, wie Sie Ihren Account entsperren können."
+      unlocked: "Ihr Account wurde entsperrt. Sie sind jetzt angemeldet."
+  errors:
+    messages:
+      pwned_password: "ist in einer Liste bekannter Passwörter enthalten. Verwenden Sie bitte ein anderes Passwort."
+      already_confirmed: "wurde bereits bestätigt"
+      confirmation_period_expired: "muss innerhalb %{period} bestätigt werden, bitte fordern Sie einen neuen Link an"
+      expired: "ist abgelaufen, bitte neu anfordern"
+      not_found: "nicht gefunden"
+      not_locked: "ist nicht gesperrt"
+      not_saved:
+        one: "Bitte korrigieren Sie den folgenden Fehler:"
+        other: "Bitte korrigieren Sie die folgenden Fehler:"

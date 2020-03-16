@@ -1,0 +1,31 @@
+h1 #{@company.name}s credits almost empty
+
+= link_to "Company page", backend_company_url(@company)
+
+h3 Total: #{@company.total_credits}
+h3 Used: #{@company.used_credits}
+h3 Left: #{@company.total_credits - @company.used_credits}
+
+h2 Bookings
+table(width="600px" style="text-align: left")
+  tr
+    th Name
+    th Amount
+    th Date
+  - @company.credit_bookings.each do |booking|
+    tr
+      td = booking.name
+      td #{booking.credit_amount}
+      td #{l(booking.booking_date, format: :short)}
+
+h2 Campaigns
+table(width="600px" style="text-align: left")
+  tr
+    th Name
+    th Status
+    th Contacted
+  - @company.campaigns.each do |campaign|
+    tr
+      td = campaign.name
+      td <i>#{campaign.status_data[:description]}</i>
+      td = campaign.linked_in_outreaches.size

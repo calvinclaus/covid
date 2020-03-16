@@ -1,0 +1,567 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://gender-api.com/get?key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=Calvin
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 06 Dec 2019 10:57:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'count: 1, duration: 22ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"calvin","name_sanitized":"Calvin","country":"","gender":"male","samples":7186,"accuracy":99,"duration":"22ms","credits_used":1}'
+    http_version: 
+  recorded_at: Fri, 06 Dec 2019 10:57:02 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=nonamenonnamon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 06 Dec 2019 11:07:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'count: 0, duration: 21ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"nonamenonnamon","name_sanitized":"Nonamenonnamon","country":"","gender":"unknown","samples":0,"accuracy":0,"duration":"21ms","credits_used":0}'
+    http_version: 
+  recorded_at: Fri, 06 Dec 2019 11:07:41 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?country=DE&key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=Calvin
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 06 Dec 2019 11:07:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'count: 1, duration: 18ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"calvin","name_sanitized":"Calvin","country":"DE","gender":"male","samples":140,"accuracy":99,"duration":"18ms","credits_used":1}'
+    http_version: 
+  recorded_at: Fri, 06 Dec 2019 11:07:42 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=Nonamenonnamon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Dec 2019 09:51:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'count: 0, duration: 26ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"nonamenonnamon","name_sanitized":"Nonamenonnamon","country":"","gender":"unknown","samples":0,"accuracy":0,"duration":"26ms","credits_used":0}'
+    http_version: 
+  recorded_at: Thu, 19 Dec 2019 09:51:17 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?country=&key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=Christian
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 03 Jan 2020 10:06:21 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'count: 0, duration: 21ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"christian","name_sanitized":"Christian","country":"","gender":"unknown","samples":0,"accuracy":0,"duration":"21ms","credits_used":0}'
+    http_version: 
+  recorded_at: Fri, 03 Jan 2020 10:06:21 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?country=DE&key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=Christian
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 07 Jan 2020 11:58:51 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'count: 1, duration: 17ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"christian","name_sanitized":"Christian","country":"DE","gender":"male","samples":86,"accuracy":100,"duration":"17ms","credits_used":1}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 11:58:51 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?country=DE&key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=Nermin
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 17 Jan 2020 14:01:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'count: 1, duration: 20ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"nermin","name_sanitized":"Nermin","country":"DE","gender":"female","samples":178,"accuracy":65,"duration":"20ms","credits_used":1}'
+    http_version: 
+  recorded_at: Fri, 17 Jan 2020 14:01:28 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?country=&key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=Nermin
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 17 Jan 2020 14:08:59 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'count: 1, duration: 21ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"nermin","name_sanitized":"Nermin","country":"","gender":"female","samples":3157,"accuracy":74,"duration":"21ms","credits_used":1}'
+    http_version: 
+  recorded_at: Fri, 17 Jan 2020 14:08:59 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?country=DE&key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=Kashif
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 25 Jan 2020 19:27:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'count: 1, duration: 19ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"kashif","name_sanitized":"Kashif","country":"DE","gender":"male","samples":41,"accuracy":100,"duration":"19ms","credits_used":1}'
+    http_version: 
+  recorded_at: Sat, 25 Jan 2020 19:27:26 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?country=DE&key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 12 Feb 2020 14:54:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'errno: 20, duration: 19ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"","errno":20,"errmsg":"name not set","gender":"unknown","samples":0,"accuracy":0,"duration":"19ms","credits_used":1}'
+    http_version: 
+  recorded_at: Wed, 12 Feb 2020 14:54:43 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?country=DE&key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 12 Feb 2020 14:59:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'errno: 20, duration: 16ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"","errno":20,"errmsg":"name not set","gender":"unknown","samples":0,"accuracy":0,"duration":"16ms","credits_used":1}'
+    http_version: 
+  recorded_at: Wed, 12 Feb 2020 14:59:35 GMT
+- request:
+    method: get
+    uri: https://gender-api.com/get?country=DE&key=b0f02c43be9c1df1666148485bb71e9f7ecad5a97b3a146d07013233b3dead9d&name=Usksjsndj
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 12 Feb 2020 15:01:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ng:
+      - 'count: 0, duration: 27ms'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=60
+    body:
+      encoding: UTF-8
+      string: '{"name":"usksjsndj","name_sanitized":"Usksjsndj","country":"DE","gender":"unknown","samples":0,"accuracy":0,"duration":"27ms","credits_used":0}'
+    http_version: 
+  recorded_at: Wed, 12 Feb 2020 15:01:09 GMT
+recorded_with: VCR 5.0.0

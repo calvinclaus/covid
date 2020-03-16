@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title COVID-19 in Österreich
+    = csrf_meta_tags
+    = csp_meta_tag
+    = javascript_include_tag 'application'
+    = javascript_pack_tag 'frontend'
+    = stylesheet_pack_tag 'frontend'
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/72fd0a64ea.js" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-53478561-14"></script>
+    javascript:
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-53478561-14');
+  body(class="#{request.path == "/" ? "root" : request.path.gsub("/", "_").gsub(/^_/, "")}")
+    = yield
+

@@ -1,0 +1,29 @@
+@import './shared/campaigns.scss';
+@import './shared.scss';
+@import './shared/covid.scss';
+
+
+html {
+  min-height: 100vh;
+}
+body.users_sign_in, body.users_password_edit, body.users_password, body.users_password_new {
+  background: url('../images/waves.jpg');
+  &> .alert, &> .notice {
+    display: none;
+  }
+
+  .signInBox {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    background: white;
+    max-width: 700px;
+    min-height: 100vh;
+  }
+
+}
+
+body {
+  background: #F6FCFF;
+}

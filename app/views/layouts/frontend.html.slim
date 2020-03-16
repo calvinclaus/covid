@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title Users
+    = csrf_meta_tags
+    = csp_meta_tag
+    = javascript_include_tag 'application'
+    = javascript_pack_tag 'frontend'
+    = stylesheet_pack_tag 'frontend'
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/72fd0a64ea.js" crossorigin="anonymous"></script>
+  body(class="#{request.path == "/" ? "root" : request.path.gsub("/", "_").gsub(/^_/, "")}")
+
+    - if user_signed_in?
+      .ui.twelve.column.centered.grid.mt-0.bg-white
+        .column.eight.wide.llg-flex.align-items-center
+          a(href="/" style="color: rgb(46, 56, 77);")
+            .logo
+              .img
+              span.text Motion
+        .column.four.wide
+          .ui.secondary.menu
+            .right.menu
+              .item
+                ' Logged In:
+                = current_user.name
+              .item
+                = link_to "Log Out", destroy_user_session_path, method: :delete, class: "ui item"
+
+      - if notice.present?
+        .ui.twelve.column.centered.grid.mt-30
+          .ui.message.success = notice
+      - if alert.present?
+        .ui.twelve.column.centered.grid.mt-30
+          .ui.message.error = alert
+
+    = yield

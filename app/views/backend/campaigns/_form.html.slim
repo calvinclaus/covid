@@ -1,0 +1,32 @@
+= simple_form_for [:backend, @campaign] do |f|
+  = f.input :name
+  = f.input :notes, as: :text
+  = f.input :target_audience_size
+  = f.input :phantombuster_agent_id
+
+  - show_select = !@campaign.linked_in_account.present? || @campaign.linked_in_account.persisted?
+
+  div(data-form-toggle-children="true" data-test-id="new-existing-linked-in-account")
+    div(style="display: #{show_select ? "block": "none"}")
+      h3 LinkedIn Account
+      = f.association :linked_in_account
+      button(data-toggle="true" type="button") New LinkedIn Account
+    div(style="display: #{show_select ? "none": "block"}")
+      h3 LinkedIn Account
+      = f.simple_fields_for(:linked_in_account, (@campaign.linked_in_account.blank? ? LinkedInAccount.new : @campaign.linked_in_account)) do |c|
+        - if @campaign.linked_in_account.present? && @campaign.linked_in_account.persisted?
+          = c.input :name, input_html: { value: "" }
+          = c.input :email, input_html: { value: "" }
+          = c.input :li_at, input_html: { value: "" }
+        - else
+          = c.input :name
+          = c.input :email
+          = c.input :li_at
+      button(data-toggle="true" type="button") Back
+
+
+  = f.input :next_milestone
+  = f.input :status, collection: Campaign::STATI.map { |s| [s[:description], s[:key]] }, priority: "1"
+  = f.association :company
+  #campaignSegments(data-campaign-segments=@campaign.segments.to_json)
+  = f.submit

@@ -1,0 +1,23 @@
+h2 Searches
+
+= link_to "Create New Company", new_backend_company_path
+
+
+table.ui.table.striped.celled
+  thead
+    tr
+      th Name
+      th Credits left
+      th Created At
+      th
+  tbody
+    - @companies.each do |company|
+      - cache company do
+        tr
+          td = company.name
+          td = company.credits_left_cache
+          td = l(company.created_at, format: :short)
+          td
+            = link_to "Edit", edit_backend_company_path(company)
+            br
+            = link_to "View", backend_company_path(company)

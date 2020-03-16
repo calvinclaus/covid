@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://docs.google.com/spreadsheets/d/1kqCeY_ljXNsI49hxE-A2ebFzh7SXE_pAlVGtUTu2Quo/export?format=csv
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - docs.google.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/csv
+      X-Robots-Tag:
+      - noindex, nofollow, nosnippet
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - Mon, 01 Jan 1990 00:00:00 GMT
+      Date:
+      - Fri, 20 Sep 2019 15:42:21 GMT
+      Content-Disposition:
+      - attachment; filename="USED_IN_LLG_APP_BLACKLIST_TESTS_JUST_LEAVE_HERE-Tabellenblatt1.csv";
+        filename*=UTF-8''USED_IN_LLG_APP_BLACKLIST_TESTS_JUST_LEAVE_HERE%20-%20Tabellenblatt1.csv
+      P3p:
+      - CP="This is not a P3P policy! See g.co/p3phelp for more info."
+      - CP="This is not a P3P policy! See g.co/p3phelp for more info."
+      X-Frame-Options:
+      - ALLOW-FROM https://docs.google.com
+      Content-Security-Policy:
+      - frame-ancestors 'self' https://docs.google.com
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Set-Cookie:
+      - NID=188=jsOQlVfq16E-ERTjL7IXqP64h2Q-MHqJ_SOI6qrQ097syl6Z-bcVIfNko7vk4BJ6IiMpJsFdsXPIuFZo-ade9cLCP1_SSwHoG3121IHcxI6QLdH7tFvjtDRmdUfrTAqX0sbH3hgieXhpkqcFPrlNMS4kiT4ZJk-lKw_TvFVPYhE;
+        expires=Sat, 21-Mar-2020 15:42:21 GMT; path=/; domain=.google.com; HttpOnly
+      - NID=188=ud6gCHqKHHnD2EL-YsD6YbI6aoSFNvbCMQCbJuWTzCNwAEDAB0-_6LRaCuXiqvVuh1jigsEATqPna6bnyKMXsjKb7CwSwFZrDs-XekO3dqvcsJx7poZTyO42qKAi0CZgucAKrrQmCqMCU-Pq7E-OKuYAOkn9BRzHytk1UefOzvk;
+        expires=Sat, 21-Mar-2020 15:42:21 GMT; path=/; domain=.google.com; HttpOnly
+      - S=apps-spreadsheets=z5aQUC4UJoRuAytUu5jLfUxDZbiO0uUC; Domain=.docs.google.com;
+        Expires=Fri, 20-Sep-2019 16:42:21 GMT; Path=/spreadsheets/d/1kqCeY_ljXNsI49hxE-A2ebFzh7SXE_pAlVGtUTu2Quo;
+        Secure; HttpOnly
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="46,43,39"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: "companyName\r\nFoobar Gmbh\r\nBarfoo Gmbh"
+    http_version: 
+  recorded_at: Fri, 20 Sep 2019 15:42:21 GMT
+recorded_with: VCR 5.0.0

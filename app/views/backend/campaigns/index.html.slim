@@ -1,0 +1,11 @@
+h2 Campaigns
+
+= link_to "Create new Campaign", new_backend_campaign_path
+
+#campaigns(
+  data-campaigns=@campaigns_json
+  data-can-edit="true"
+  data-can-see-details="true"
+  data-can-see-color-code="true"
+  data-can-use-film-mode="true"
+)

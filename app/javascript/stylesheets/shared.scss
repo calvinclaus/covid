@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700&display=swap');
+.logo {
+  display: flex;
+  .img {
+    width: 28px;
+    height: 28px;
+    background: url('../images/motion-logo.png');
+    background-size: contain;
+  }
+  .text {
+    display: block;
+    align-items: center;
+    line-height: 2;
+    margin-left: 5px;
+  }
+}
+.mt-10 {
+  margin-top: 10px !important;
+}
+.mt-30 {
+  margin-top: 30px !important;
+}
+.mt-0 {
+  margin-top: 0px !important;
+}
+
+.llg-flex {
+  display: flex !important;
+}
+.align-items-center {
+  align-items: center;
+}
+.bg-white {
+  background: white;
+}
+

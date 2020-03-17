@@ -42,6 +42,7 @@ gem 'devise'
 gem "slim-rails"
 
 gem "httparty"
+gem "nokogiri"
 gem 'json'
 
 # Use CoffeeScript for .coffee assets and views

@@ -42,12 +42,13 @@ export default class PartAndFull extends React.Component {
       if (this.props.lowerIsBetter) {
         smallNumberColor = changePercentage < 0 ? "green" : "red";
       }
+      let sign = changePercentage >= 0 ? "+" : "-";
       return (
         <div className={"partAndFull " + (className || "")}>
           <div className="bigNumber" aria-label={this.props.description}>
             {Number.isInteger(this.props.part) ? numeral(this.props.part).format() : this.props.part.toFixed(2)}&nbsp;
             <div className={`smallNumber ${smallNumberColor}`}>
-              <span className="percent">+</span>{numeral(Math.abs(changePercentage)).format("0.00")}<span className="percent">%</span>
+              <span className="percent">{sign}</span>{numeral(Math.abs(changePercentage)).format("0.00")}<span className="percent">%</span>
             </div>
           </div>
         </div>

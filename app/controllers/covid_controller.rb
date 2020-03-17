@@ -2,8 +2,11 @@ class CovidController < ApplicationController
   layout 'covid'
 
   def show
-    @current = Statistic.order(at: :desc).first
-    @current_json = render_to_string(template: 'covid/current.json.jbuilder', formats: 'json', layout: false)
+    @statistics = Statistic.
+      where("statistics.at = (select max(i.at) from statistics i where date(i.at) = date(statistics.at))").
+      order(at: :asc)
+    @current = @statistics.last
+    @statistics_json = render_to_string(template: 'covid/show.json.jbuilder', formats: 'json', layout: false)
     render :show, formats: [:html]
   end
 end

@@ -124,16 +124,36 @@ $lightBlue: rgb(85, 193, 245);
   }
   .smallNumber {
     display: inline-block;
+    &.green {
+      color: #00804c;
+    }
+    &.red {
+      color: rgb(232, 95, 127);
+    }
   }
   .smallNumber, .percent {
     font-size: 15px;
   }
   &.huge {
     .bigNumber {
-      font-size: 44px;
+      font-size: 38px;
+      @media(min-width: 990px) {
+        font-size: 35px;
+      }
     }
     .smallNumber, .percent {
-      font-size: 20px;
+      font-size: 17px;
+    }
+  }
+  &.large {
+    .bigNumber {
+      font-size: 28px;
+      @media(min-width: 990px) and (max-width: 1050px) {
+        font-size: 25px;
+      }
+    }
+    .smallNumber, .percent {
+      font-size: 14px;
     }
   }
   &.small {
@@ -317,6 +337,7 @@ $lightBlue: rgb(85, 193, 245);
   padding: 40px 0px 40px 30px;
   background: white;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   width: 30%;
@@ -337,9 +358,14 @@ $lightBlue: rgb(85, 193, 245);
     .description {
       position: absolute;
       bottom: -30px;
-      font-size: 16px;
-      color: #B0BAC9;
     }
+  }
+  .description {
+    font-size: 16px;
+    color: #B0BAC9;
+  }
+  .outerDescription {
+    width: 100%;
   }
   .symbolContainer {
     margin-right: 20px;

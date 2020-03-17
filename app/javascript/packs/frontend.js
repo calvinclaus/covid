@@ -26,10 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let covidDiv = document.getElementById('covid');
   if (covidDiv) {
-    console.log($(covidDiv).data("current"));
     ReactDOM.render(
       <Covid
-        current={$(covidDiv).data("current")}
+        statistics={$(covid).data("statistics")}
       />,
       covidDiv
     );

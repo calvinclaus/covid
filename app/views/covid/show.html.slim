@@ -1,9 +1,12 @@
-- cache @current do
-  .contentContainer(style="padding-bottom: 20px")
-    .ui.twelve.column.centered.grid.mt-30
-      h1.ui.header COVID-19 in Österreich
-  #covid.mt-30.contentContainer(data-current=@current_json)
-  .contentContainer(style="padding-bottom: 20px")
-    .ui.twelve.column.centered.grid.mt-30
-      p Stand #{l(@current.at.in_time_zone("Europe/Vienna"), format: :short)}
-      p <a href="https://www.sozialministerium.at/Informationen-zum-Coronavirus/Neuartiges-Coronavirus-(2019-nCov).html" target="_blank">Quelle: Sozialministerium</a>
+.contentContainer(style="padding-bottom: 20px")
+  .ui.twelve.column.centered.grid.mt-30
+    h1.ui.header
+      | COVID-19 in Österreich
+      .sub.header
+        p Stand #{l(@current.at.in_time_zone("Europe/Vienna"), format: :short)}
+#covid.mt-30.contentContainer(data-statistics=@statistics_json)
+.contentContainer(style="padding-bottom: 20px")
+  .ui.twelve.column.centered.grid.mt-30
+    p Stand #{l(@current.at.in_time_zone("Europe/Vienna"), format: :short)}
+    p <a href="https://www.sozialministerium.at/Informationen-zum-Coronavirus/Neuartiges-Coronavirus-(2019-nCov).html" target="_blank">Quelle: Sozialministerium</a>
+    p <a href="mailto:office@motion-group.com">Feedback an uns :)</a>

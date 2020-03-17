@@ -19,13 +19,12 @@ export default class Covid extends React.Component {
   }
 
   render () {
-    let beforeBeforeCurrent = this.props.statistics[this.props.statistics.length-3];
     let beforeCurrent = this.props.statistics[this.props.statistics.length-2];
     let current = this.props.statistics[this.props.statistics.length-1];
     let { numTested, numInfected, numRecovered, numDead } = current;
 
-    let { daysToDouble } = statsBetween(current, beforeCurrent);
-    let daysToDoubleBefore = statsBetween(beforeCurrent, beforeBeforeCurrent).daysToDouble;
+    let { daysToDouble } = statsBetween(current, this.props.statistics[this.props.statistics.length-4]);
+    let daysToDoubleBefore = statsBetween(beforeCurrent, this.props.statistics[this.props.statistics.length-5]).daysToDouble;
 
     return (
       <div>

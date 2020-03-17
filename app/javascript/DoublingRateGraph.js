@@ -23,18 +23,16 @@ class Plot extends React.Component {
 
   getGraphConfig() {
     let { statistics, } = this.props;
-    console.log(statistics);
 
     var periods = [];
     var daysToDouble = [];
     var growthRates = [];
     for (var i = 9; i < statistics.length; i++) {
-      let stats = statsBetween(statistics[i], statistics[i-1]);
+      let stats = statsBetween(statistics[i], statistics[i-3]);
       let date = new Date(statistics[i].at)
       periods.push(`${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`);
       daysToDouble.push(stats.daysToDouble);
     }
-    console.log("growth rates: ", growthRates);
 
 
     return {

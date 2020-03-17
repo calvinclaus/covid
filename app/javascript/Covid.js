@@ -92,6 +92,13 @@ export default class Covid extends React.Component {
         <DoublingRateGraph
           statistics={this.props.statistics}
         />
+        <Grid>
+          <Grid.Column>
+            <p style={{textAlign: "center",  fontSize: 11}}>
+              Die Verdoppelungszeit berücksichtigt für jedes Datum die Veränderung der Infektionsrate der vorangegangenen drei Tage.
+            </p>
+          </Grid.Column>
+        </Grid>
 
 
       </div>

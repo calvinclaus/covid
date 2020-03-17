@@ -27,7 +27,7 @@ class Plot extends React.Component {
     var periods = [];
     var daysToDouble = [];
     var growthRates = [];
-    for (var i = 9; i < statistics.length; i++) {
+    for (var i = 7; i < statistics.length; i++) {
       let stats = statsBetween(statistics[i], statistics[i-3]);
       let date = new Date(statistics[i].at)
       periods.push(`${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`);
@@ -61,7 +61,7 @@ class Plot extends React.Component {
         annotations: {
           xaxis: [
           {
-            x: 11,
+            x: 14,
             strokeDashArray: 0,
             borderColor: '#775DD0',
             label: {
@@ -151,6 +151,7 @@ class Plot extends React.Component {
             offsetX: 2,
             offsetY: -2,
           },
+          min: 0,
           forceNiceScale: true,
           lines: {
             show: true

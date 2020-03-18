@@ -1,8 +1,9 @@
 import React from "react";
+import axios from "axios";
 import PartAndFull from "./frontend/PartAndFull.js";
 import RoundFontAwesome from "./frontend/RoundFontAwesome.js";
 import DoublingRateGraph from "./DoublingRateGraph.js";
-import { Grid, Header, } from 'semantic-ui-react';
+import { Grid, Header, Segment, Form, Button, Message, } from 'semantic-ui-react';
 import { statsBetween } from "./StatisticHelpers.js";
 
 export default class Covid extends React.Component {
@@ -10,8 +11,28 @@ export default class Covid extends React.Component {
     super(props);
     this.state = {
       switched: false,
+      email: "",
+      errorMessage: "",
+      successMessage: "",
     }
     this.handleSwitch = this.handleSwitch.bind(this);
+  }
+
+  handleEmailChange(event) {
+    this.setState({email: event.target.value})
+  }
+
+  handleSubmit() {
+    this.setState({loading: true})
+    axios.post("/create_user", { email: this.state.email })
+      .then(({ data }) => {
+        this.setState({loading: false, errorMessage: "", successMessage: "Erfolgreich gespeichert. Vielen Dank!"})
+      })
+      .catch(error => {
+        console.log(error);
+        console.log("setting error message");
+        this.setState({loading: false, errorMessage: "Email konnte nicht gespeichert werden. Ist die Adresse korrekt eingegeben?"})
+      })
   }
 
   handleSwitch() {
@@ -28,6 +49,8 @@ export default class Covid extends React.Component {
 
     let daysToDouble = statsBetween(current, this.props.statistics[this.props.statistics.length-4]).daysToDouble;
     let daysToDoubleBefore = statsBetween(beforeCurrent, this.props.statistics[this.props.statistics.length-5]).daysToDouble;
+
+    console.log(this.state.errorMessage);
 
     return (
       <div>
@@ -86,22 +109,52 @@ export default class Covid extends React.Component {
           </Grid.Column>
         </Grid>
 
+        <Segment>
+
         <Header>
-          Verdoppelungszeit in Tagen
-          <Header.Subheader>
-            (höher ist besser)
-          </Header.Subheader>
-        </Header>
-        <DoublingRateGraph
-          statistics={this.props.statistics}
-        />
+            Verdoppelungszeit in Tagen
+            <Header.Subheader>
+              (höher ist besser)
+            </Header.Subheader>
+          </Header>
+          <DoublingRateGraph
+            statistics={this.props.statistics}
+          />
+          <Grid>
+            <Grid.Column>
+              <p style={{textAlign: "center",  fontSize: 11}}>
+                Die Verdoppelungszeit berücksichtigt für jedes Datum die Veränderung der Infektionsrate der vorangegangenen drei Tage.<br />
+                Die in der "Erkrankt"-Box angezeigte prozentuelle Veränderung, ist die prozentuelle Änderung in 24h. <br/> Sofern die Daten von 15:00 des heutigen Tages noch nicht vorhanden sind, wird die Veränderung von gestern 15:00 zu heute 8:00 auf 24h exponentiell extrapoliert.<br />
+                Die in der "Getestet"-Box angezeigte prozentuelle Veränderung, ist die prozentuelle Änderung seit der letzten Messsung.
+              </p>
+            </Grid.Column>
+          </Grid>
+        </Segment>
         <Grid>
           <Grid.Column>
-            <p style={{textAlign: "center",  fontSize: 11}}>
-              Die Verdoppelungszeit berücksichtigt für jedes Datum die Veränderung der Infektionsrate der vorangegangenen drei Tage.<br />
-              Die in der "Erkrankt"-Box angezeigte prozentuelle Veränderung, ist die prozentuelle Änderung in 24h. <br/> Sofern die Daten von 15:00 des heutigen Tages noch nicht vorhanden sind, wird die Veränderung von gestern 15:00 zu heute 8:00 auf 24h exponentiell extrapoliert.<br />
-              Die in der "Getestet"-Box angezeigte prozentuelle Veränderung, ist die prozentuelle Änderung seit der letzten Messsung.
-            </p>
+            <Segment>
+              <Header>
+                Benachrichtigung über COVID-19 Verlauf in Österreich
+                <Header.Subheader>
+                  Zwei mal täglich
+                </Header.Subheader>
+              </Header>
+              <p>Erhalten Sie eine Benachrichtigung sobald das Sozialministerium neue Werte veröffentlicht. Jederzeit abbestellbar.</p>
+              <Form>
+                { this.state.errorMessage && <Message
+                  negative
+                  content={this.state.errorMessage}
+                /> }
+                { this.state.successMessage && <Message
+                  content={this.state.successMessage}
+                /> }
+                <Form.Field>
+                  <label>Email</label>
+                  <input placeholder='Email' value={this.state.email} onChange={this.handleEmailChange.bind(this)}/>
+                </Form.Field>
+                <Button type='submit' loading={this.state.loading} onClick={this.handleSubmit.bind(this)}>Benachrichtigungen erhalten</Button>
+              </Form>
+            </Segment>
           </Grid.Column>
         </Grid>
 

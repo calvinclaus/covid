@@ -47,8 +47,15 @@ class Statistic < ApplicationRecord
       end
     else
       statistic = Statistic.create!(hash)
-      pp "sending notification"
-      ExceptionNotifier.notify_exception(Exception.new("new statistic added"))
+      send_new_statistic_alerts
+    end
+  end
+
+  def self.send_new_statistic_alerts
+    pp "sending notification"
+    ExceptionNotifier.notify_exception(Exception.new("new statistic added"))
+    User.where(subscribed: true).each do |u|
+      StatisticMailer.new_data_mail(u).deliver_now
     end
   end
 

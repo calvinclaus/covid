@@ -27,10 +27,7 @@ export default class PartAndFull extends React.Component {
   }
 
   changePercentage() {
-    let smaller = this.props.changedFrom > this.props.part ? this.props.part : this.props.changedFrom;
-    let bigger = this.props.changedFrom > this.props.part ? this.props.changedFrom : this.props.part;
-    let sign = this.props.changedFrom < this.props.part ? 1 : -1;
-    return (sign*100*((bigger/smaller)-1));
+    return (100*((this.props.part/this.props.changedFrom)-1));
   }
 
   render() {

@@ -23,7 +23,10 @@ export default class Covid extends React.Component {
     let current = this.props.statistics[this.props.statistics.length-1];
     let { numTested, numInfected, numRecovered, numDead } = current;
 
-    let { daysToDouble } = statsBetween(current, this.props.statistics[this.props.statistics.length-4]);
+    let currentStats = statsBetween(current, beforeCurrent);
+    let currentStatsReversed = statsBetween(beforeCurrent, current);
+
+    let daysToDouble = statsBetween(current, this.props.statistics[this.props.statistics.length-4]).daysToDouble;
     let daysToDoubleBefore = statsBetween(beforeCurrent, this.props.statistics[this.props.statistics.length-5]).daysToDouble;
 
     return (
@@ -34,7 +37,7 @@ export default class Covid extends React.Component {
               faClasses={"fas fa-plus-square"}
               color="rgb(232, 95, 127)"
               part={numInfected}
-              changedFrom={beforeCurrent.numInfected}
+              changedFrom={numInfected/(1+currentStats.extrapolated24hChange)}
               description="Erkrankt"
               lowerIsBetter={true}
               switchable={true}
@@ -95,7 +98,9 @@ export default class Covid extends React.Component {
         <Grid>
           <Grid.Column>
             <p style={{textAlign: "center",  fontSize: 11}}>
-              Die Verdoppelungszeit berücksichtigt für jedes Datum die Veränderung der Infektionsrate der vorangegangenen drei Tage.
+              Die Verdoppelungszeit berücksichtigt für jedes Datum die Veränderung der Infektionsrate der vorangegangenen drei Tage.<br />
+              Die in der "Erkrankt"-Box angezeigte prozentuelle Veränderung, ist die prozentuelle Änderung in 24h. Sofern die Daten von 15:00 noch nicht vorhanden sind, wird die Veränderung extrapoliert.<br />
+              Die in der "Getestet"-Box angezeigte prozentuelle Veränderung, ist die prozentuelle Änderung seit der letzten Messsung.
             </p>
           </Grid.Column>
         </Grid>

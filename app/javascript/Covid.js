@@ -99,7 +99,7 @@ export default class Covid extends React.Component {
           <Grid.Column>
             <p style={{textAlign: "center",  fontSize: 11}}>
               Die Verdoppelungszeit berücksichtigt für jedes Datum die Veränderung der Infektionsrate der vorangegangenen drei Tage.<br />
-              Die in der "Erkrankt"-Box angezeigte prozentuelle Veränderung, ist die prozentuelle Änderung in 24h. Sofern die Daten von 15:00 noch nicht vorhanden sind, wird die Veränderung extrapoliert.<br />
+              Die in der "Erkrankt"-Box angezeigte prozentuelle Veränderung, ist die prozentuelle Änderung in 24h. <br/> Sofern die Daten von 15:00 des heutigen Tages noch nicht vorhanden sind, wird die Veränderung von gestern 15:00 zu heute 8:00 auf 24h exponentiell extrapoliert.<br />
               Die in der "Getestet"-Box angezeigte prozentuelle Veränderung, ist die prozentuelle Änderung seit der letzten Messsung.
             </p>
           </Grid.Column>
@@ -119,7 +119,7 @@ class StatBox extends React.Component {
   render() {
     return (
       <div className={"covidStatBox " + (this.props.outerDescription && "withOuterDescription")}>
-        { this.props.switchable && <button className={"circular mini ui icon button toggle "} onClick={this.props.onSwitch}>
+        { this.props.switchable && <button className={"circular small ui icon button toggle "} onClick={this.props.onSwitch}>
           <i className={"icon "+this.props.switchSign}></i>
         </button>}
         <div className="symbolContainer">

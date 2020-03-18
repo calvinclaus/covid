@@ -7,6 +7,7 @@
 #covid.mt-30.contentContainer(data-statistics=@statistics_json)
 .contentContainer(style="padding-bottom: 20px")
   .ui.twelve.column.centered.grid.mt-30
+    p = link_to "Download Rohdaten", raw_data_path
     p Stand #{l(@current.at.in_time_zone("Europe/Vienna"), format: :short)}
     p <a href="https://www.sozialministerium.at/Informationen-zum-Coronavirus/Neuartiges-Coronavirus-(2019-nCov).html" target="_blank">Quelle: Sozialministerium</a>
     p <a href="mailto:office@motion-group.com">Feedback an uns :)</a>

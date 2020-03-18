@@ -100,14 +100,6 @@ class Plot extends React.Component {
           },
           fontFamily: '\'Source Sans Pro\', \'Helvetica Neue\', Arial, Helvetica, sans-serif',
           type: 'line',
-          events: {
-            markerClick: function(event, chartContext, { seriesIndex, dataPointIndex, config}) {
-              let url = links[dataPointIndex]
-              if (url) {
-                window.open(url, getLinkTarget(url))
-              }
-            }
-          },
         },
         colors: ['rgb(156, 194, 255)'],
         dataLabels: {

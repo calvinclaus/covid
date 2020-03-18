@@ -43,15 +43,16 @@
     color: #B0BAC9;
   }
   .outerDescription {
-    width: 100%;
+    width: auto;
     position: absolute;
     bottom: 18px;
-    right: -20px;
+    left: 25px;
     @media(max-width: 990px) {
-      right: -98px;
+      left: 35px;
     }
     @media(max-width: 330px) {
-      right: -20px;
+      font-size: 15px;
+      left: 40px;
     }
   }
   .symbolContainer {

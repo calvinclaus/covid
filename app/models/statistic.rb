@@ -55,7 +55,12 @@ class Statistic < ApplicationRecord
     pp "sending notification"
     ExceptionNotifier.notify_exception(Exception.new("new statistic added"))
     User.where(subscribed: true).each do |u|
-      StatisticMailer.new_data_mail(u).deliver_now
+      begin
+        StatisticMailer.new_data_mail(u).deliver_now
+      rescue Exception => e
+        pp "failed to send, skipping"
+        ExceptionNotifier.notify_exception(e)
+      end
     end
   end
 

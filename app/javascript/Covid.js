@@ -133,27 +133,29 @@ export default class Covid extends React.Component {
         <Grid>
           <Grid.Column>
             <Segment>
-              <Header>
-                Benachrichtigung über COVID-19 Verlauf in Österreich
-                <Header.Subheader>
-                  Zwei mal täglich
-                </Header.Subheader>
-              </Header>
-              <p>Erhalten Sie eine Benachrichtigung sobald das Sozialministerium neue Werte veröffentlicht. Jederzeit abbestellbar.</p>
-              <Form>
-                { this.state.errorMessage && <Message
-                  negative
-                  content={this.state.errorMessage}
-                /> }
-                { this.state.successMessage && <Message
-                  content={this.state.successMessage}
-                /> }
-                <Form.Field>
-                  <label>Email</label>
-                  <input placeholder='Email' value={this.state.email} onChange={this.handleEmailChange.bind(this)}/>
-                </Form.Field>
-                <Button type='submit' loading={this.state.loading} onClick={this.handleSubmit.bind(this)}>Benachrichtigungen erhalten</Button>
-              </Form>
+              <div id="email">
+                <Header>
+                  Benachrichtigung über COVID-19 Verlauf in Österreich
+                  <Header.Subheader>
+                    Zwei mal täglich
+                  </Header.Subheader>
+                </Header>
+                <p>Erhalten Sie eine Benachrichtigung sobald das Sozialministerium neue Werte veröffentlicht. Jederzeit abbestellbar.</p>
+                <Form>
+                  { this.state.errorMessage && <Message
+                    negative
+                    content={this.state.errorMessage}
+                  /> }
+                  { this.state.successMessage && <Message
+                    content={this.state.successMessage}
+                  /> }
+                  <Form.Field>
+                    <label>Email</label>
+                    <input placeholder='Email' name="email" value={this.state.email} onChange={this.handleEmailChange.bind(this)}/>
+                  </Form.Field>
+                  <Button type='submit' loading={this.state.loading} onClick={this.handleSubmit.bind(this)}>Benachrichtigungen erhalten</Button>
+                </Form>
+              </div>
             </Segment>
           </Grid.Column>
         </Grid>

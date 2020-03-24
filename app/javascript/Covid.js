@@ -3,6 +3,7 @@ import axios from "axios";
 import PartAndFull from "./frontend/PartAndFull.js";
 import RoundFontAwesome from "./frontend/RoundFontAwesome.js";
 import DoublingRateGraph from "./DoublingRateGraph.js";
+import VorfreudeSvg from "./VorfreudeSvg.js";
 import { Grid, Header, Segment, Form, Button, Message, } from 'semantic-ui-react';
 import { statsBetween } from "./StatisticHelpers.js";
 
@@ -95,6 +96,24 @@ export default class Covid extends React.Component {
             />
           </Grid.Column>
         </Grid>
+
+        <Segment>
+
+          <a href="https://www.vorfreude.kaufen/" style={{marginBottom: 10, display: "block"}} target="_blank">
+            <h2 className="ui header">
+              <i className="icon" style={{fontSize: "3em"}}>
+                <VorfreudeSvg />
+              </i>
+              <div className="content">
+                Ihr Lieblingslokal unterstützen
+                <div className="sub header">Mit der Initiative vorfreude.kaufen</div>
+              </div>
+            </h2>
+          </a>
+           <p>
+             Die aktuelle Lage ist für uns alle ungewohnt. Ihr Lieblingslokal trifft das besonders hart. Denn ohne Gäste keine Zukunft. Mit der Initiative <b>vorfreude.kaufen</b> helfen Sie sofort, damit Ihre Lieblingslokale später wieder aufsperren können. <a href="https://www.vorfreude.kaufen/" target="_blank">Hier können Sie Ihr Lieblingslokal unterstützen</a>.
+           </p>
+        </Segment>
 
         <Segment>
 

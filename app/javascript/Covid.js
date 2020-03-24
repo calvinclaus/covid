@@ -56,36 +56,23 @@ export default class Covid extends React.Component {
       <div>
         <Grid>
           <Grid.Column mobile={16} tablet={8} computer={4}>
-            {!this.state.switched && <StatBox
+            <StatBox
+              faClasses={"fas fa-vial"}
+              color="rgb(156, 194, 255)"
+              part={numTested}
+              changedFrom={beforeCurrent.numTested}
+              lowerIsBetter={false}
+              description="Getestet"
+            />
+          </Grid.Column>
+          <Grid.Column mobile={16} tablet={8} computer={4}>
+            <StatBox
               faClasses={"fas fa-plus-square"}
               color="rgb(232, 95, 127)"
               part={numInfected}
               changedFrom={numInfected/(1+currentStats.extrapolated24hChange)}
               description="Erkrankt"
               lowerIsBetter={true}
-              switchable={true}
-              switchSign={"fas fa-vial"}
-              onSwitch={this.handleSwitch}
-            /> }
-            { this.state.switched && <StatBox
-              faClasses={"fas fa-vial"}
-              switchSign={"fas fa-plus-square"}
-              color="rgb(156, 194, 255)"
-              part={numTested}
-              changedFrom={beforeCurrent.numTested}
-              lowerIsBetter={false}
-              description="Getestet"
-              switchable={true}
-              onSwitch={this.handleSwitch}
-            /> }
-          </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={4}>
-            <StatBox
-              faClasses={"fas fa-thumbs-up"}
-              color="rgb(73, 204, 174)"
-              part={numRecovered}
-              full={numInfected}
-              description="Genesen"
             />
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={4}>

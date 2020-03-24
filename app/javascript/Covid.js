@@ -67,7 +67,7 @@ export default class Covid extends React.Component {
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={4}>
             <StatBox
-              faClasses={"fas fa-plus-square"}
+              faClasses={"fas fa-hand-holding-medical"}
               color="rgb(232, 95, 127)"
               part={numInfected}
               changedFrom={numInfected/(1+currentStats.extrapolated24hChange)}
@@ -86,8 +86,8 @@ export default class Covid extends React.Component {
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={4}>
             <StatBox
-              faClasses={"fas fa-chart-line"}
-              color="rgb(156, 194, 255)"
+              faClasses={"fas fa-viruses"}
+              color="rgb(143, 103, 235)"
               part={daysToDouble}
               changedFrom={daysToDoubleBefore}
               outerDescription="Verdoppelungszeit in Tagen"

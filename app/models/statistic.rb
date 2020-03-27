@@ -55,8 +55,7 @@ class Statistic < ApplicationRecord
       begin
         StatisticMailer.new_data_mail(u).deliver_now
       rescue Exception => e
-        pp "failed to send, skipping"
-        ExceptionNotifier.notify_exception(e)
+        pp "failed to send, skipping, #{e}"
       end
     end
   end

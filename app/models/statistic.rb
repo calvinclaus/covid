@@ -21,7 +21,7 @@ class Statistic < ApplicationRecord
         hash[:at] = DateTime.parse(line).asctime.in_time_zone("Europe/Vienna")
       end
 
-      number_line = line.downcase.gsub(/\d\d\:\d\d uhr/, "").gsub(/\d\d\.\d\d.\d\d\d\d/, "").gsub(".", "")
+      number_line = line.downcase.gsub(/\(.*?\)/, "").gsub(/\d\d\:\d\d uhr/, "").gsub(/\d\d\.\d\d.\d\d\d\d/, "").gsub(".", "")
       if hash[:num_tested].blank? && number_line.include?("test")
         hash[:num_tested] = number_line.scan(/\d+/).first
       end
@@ -39,7 +39,6 @@ class Statistic < ApplicationRecord
       statistic.update!(hash)
       updated_at_after = statistic.updated_at
       if updated_at_before != updated_at_after
-        pp "sending notification"
         ExceptionNotifier.notify_exception(Exception.new("updated values"))
       end
     else

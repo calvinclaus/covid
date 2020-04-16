@@ -6,33 +6,26 @@ class Statistic < ApplicationRecord
     text = agent.css("#content").first.text
 
     begin
-      maybe_set_newest_from_text(text)
+      maybe_set_newest_from_table(agent)
     rescue Exception => e
       pp e
       ExceptionNotifier.notify_exception(e)
     end
   end
 
-  def self.maybe_set_newest_from_text(text)
+  def self.maybe_set_newest_from_table(agent)
     hash = { }
-
-    text.split("\n").each do |line|
-      if line.downcase.include?("stand") && line.downcase.include?("bestätigt") && hash[:at].blank?
-        hash[:at] = DateTime.parse(line).asctime.in_time_zone("Europe/Vienna")
+    agent.css("#content .table tbody tr").each do |elem|
+      title = elem.css("th:first-child").first.text.downcase
+      number = elem.css("td:last-child").first.text.gsub(".", "")
+      if title.include?("test")
+        hash[:num_tested] = number
+        hash[:at] = DateTime.parse(title).asctime.in_time_zone("Europe/Vienna")
       end
-
-      number_line = line.downcase.gsub(/\(.*?\)/, "").gsub(/\d\d\:\d\d uhr/, "").gsub(/\d\d\.\d\d.\d\d\d\d/, "").gsub(".", "")
-      if hash[:num_tested].blank? && number_line.include?("test")
-        hash[:num_tested] = number_line.scan(/\d+/).first
-      end
-      if hash[:num_infected].blank? && (number_line.include?(" fälle") || number_line.include?("bestätigt"))
-        hash[:num_infected] = number_line.scan(/\d+/).first
-      end
-      if hash[:num_dead].blank? && (number_line.include?("tod") || number_line.include?("tot"))
-        hash[:num_dead] = number_line.scan(/\d+/).first
-      end
+      hash[:num_infected] = number and next if title.include?(" fälle") || title.include?("bestätigt")
+      hash[:num_dead] = number and next if title.include?("tod") || title.include?("tot")
+      hash[:num_recovered] = number and next if title.include?("genesen") || title.include?("gesund")
     end
-
     statistic = Statistic.where(at: hash[:at]).first
     if statistic.present?
       updated_at_before = statistic.updated_at

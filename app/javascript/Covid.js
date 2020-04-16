@@ -77,13 +77,27 @@ export default class Covid extends React.Component {
             />
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={4}>
-            <StatBox
+            {!this.state.switched && <StatBox
+              faClasses={"fas fa-thumbs-up"}
+              color="rgb(73, 204, 174)"
+              part={numRecovered}
+              full={numInfected}
+              description="Genesen"
+              switchable={true}
+              switchSign={"fas fa-praying-hands"}
+              onSwitch={this.handleSwitch}
+            />}
+            {this.state.switched && <StatBox
               faClasses={"fas fa-praying-hands"}
               color="rgb(107, 107, 107)"
               part={numDead}
               full={numInfected}
               description="Todesfälle"
+              switchable={true}
+              switchSign={"fas fa-arrow-left"}
+              onSwitch={this.handleSwitch}
             />
+            }
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={4}>
             <StatBox
@@ -180,8 +194,8 @@ class StatBox extends React.Component {
   render() {
     return (
       <div className={"covidStatBox " + (this.props.outerDescription && "withOuterDescription")}>
-        { this.props.switchable && <button className={"circular small ui icon button toggle "} onClick={this.props.onSwitch}>
-          <i className={"icon "+this.props.switchSign}></i>
+        { this.props.switchable && <button className={"circular small ui icon button toggle "} style={{width: 36, height: 36}} onClick={this.props.onSwitch}>
+          <i className={"icon "+this.props.switchSign} style={{width:15 }}></i>
         </button>}
         <div className="symbolContainer">
           <RoundFontAwesome

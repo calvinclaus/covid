@@ -17,7 +17,7 @@ class Statistic < ApplicationRecord
     hash = { }
     agent.css("#content .table tbody tr").each do |elem|
       title = elem.css("th:first-child").first.text.downcase
-      number = elem.css("td:last-child").first.text.gsub(".", "")
+      number = elem.css("td:last-child").first.text.gsub(".", "").strip.to_i
       hash[:num_tested] = number and next if title.include?("test")
       if title.include?(" fälle") || title.include?("bestätigt")
         hash[:num_infected] = number

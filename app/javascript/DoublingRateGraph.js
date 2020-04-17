@@ -73,6 +73,19 @@ class Plot extends React.Component {
               text: 'Quarantäne Beginn',
             }
           },
+          {
+            x: 43,
+            strokeDashArray: 0,
+            borderColor: '#9074ed',
+            label: {
+              borderColor: '#9074ed',
+              style: {
+                color: '#fff',
+                background: '#9074ed',
+              },
+              text: 'kleine Geschäfte öffnen',
+            }
+          },
           ]
         },
         tooltip: {

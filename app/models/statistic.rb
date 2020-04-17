@@ -18,11 +18,12 @@ class Statistic < ApplicationRecord
     agent.css("#content .table tbody tr").each do |elem|
       title = elem.css("th:first-child").first.text.downcase
       number = elem.css("td:last-child").first.text.gsub(".", "")
-      if title.include?("test")
-        hash[:num_tested] = number
+      hash[:num_tested] = number and next if title.include?("test")
+      if title.include?(" fälle") || title.include?("bestätigt")
+        hash[:num_infected] = number
         hash[:at] = DateTime.parse(title).asctime.in_time_zone("Europe/Vienna")
+        next
       end
-      hash[:num_infected] = number and next if title.include?(" fälle") || title.include?("bestätigt")
       hash[:num_dead] = number and next if title.include?("tod") || title.include?("tot")
       hash[:num_recovered] = number and next if title.include?("genesen") || title.include?("gesund")
     end
